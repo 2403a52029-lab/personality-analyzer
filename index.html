@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personality Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🧠 Personality & Behaviour Analyzer</h1>
+
+        <form method="POST" action="/analyze">
+            <textarea name="text" placeholder="Enter your text here..." required></textarea>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Result:</h2>
+            <p><strong>Mood:</strong> {{ result.mood }}</p>
+            <p><strong>Personality:</strong> {{ result.personality }}</p>
+            <p><strong>Polarity:</strong> {{ result.polarity }}</p>
+            <p><strong>Subjectivity:</strong> {{ result.subjectivity }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
